@@ -10,4 +10,8 @@ public class Aircraft {
         this.name = name;
         this.coordinates = coordinates;
     }
+
+    public void logMessage(String message) {
+        System.out.println("[" + this.getClass().getSimpleName() + "] " + this.name + " (" + this.id + "): " + message);
+    }
 }
