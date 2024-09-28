@@ -1,9 +1,5 @@
 package com.weather_simulation.aircraft;
 
-import aircraft.Baloon;
-import aircraft.Helicopter;
-import com.weather_simulation.utilites.Coordinates;
-
 public class AircraftFactory {
 
     private static AircraftFactory instance;
@@ -29,6 +25,7 @@ public class AircraftFactory {
         } else if (type.equals("Helicopter")) {
             return new Helicopter(name, coordinates, generateUniqueId());
         }
+        return null;
     }
 
     // Method to generate the next unique ID

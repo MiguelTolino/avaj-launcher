@@ -10,13 +10,6 @@ public class Simulator {
   private int triggers;
   private ArrayList<Flyable> aircrafts;
 
-  private enum Weather {
-    RAIN,
-    FOG,
-    SUN,
-    SNOW
-  }
-
   Simulator() {
     triggers = 0;
     aircrafts = new ArrayList<Flyable>();
