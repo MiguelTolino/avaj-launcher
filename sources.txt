@@ -1,4 +1,3 @@
-Main.java
 src/com/weather_simulation/aircraft/Baloon.java
 src/com/weather_simulation/aircraft/Aircraft.java
 src/com/weather_simulation/aircraft/JetPlane.java
@@ -9,3 +8,4 @@ src/com/weather_simulation/simulation/WeatherTower.java
 src/com/weather_simulation/simulation/Tower.java
 src/com/weather_simulation/simulation/WeatherProvider.java
 src/com/weather_simulation/utilities/Coordinates.java
+src/com/weather_simulation/Simulator.java
