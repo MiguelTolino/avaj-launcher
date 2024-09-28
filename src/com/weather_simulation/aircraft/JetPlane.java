@@ -1,4 +1,6 @@
-import com.weather_simulation.aircraft.Aircraft;
+package com.weather_simulation.aircraft;
+
+import src.com.weather_simulation.aircraft.Aircraft;
 
 public class JetPlane extends Aircraft implements Flyable {
 

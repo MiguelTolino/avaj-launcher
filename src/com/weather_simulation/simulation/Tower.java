@@ -1,4 +1,5 @@
-import com.weather_simulation.aircraft.Flyable;
+package com.weather_simulation;
+
 import java.util.List;
 
 public class Tower {

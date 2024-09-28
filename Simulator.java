@@ -8,7 +8,7 @@ import src.com.weather_simulation.utilities.Coordinates;
 public class Simulator {
 
   private int triggers;
-  private ArrayList<Aircraft> aircrafts;
+  private ArrayList<Flyable> aircrafts;
 
   private enum Weather {
     RAIN,
@@ -19,7 +19,7 @@ public class Simulator {
 
   Simulator() {
     triggers = 0;
-    aircrafts = new ArrayList<Aircraft>();
+    aircrafts = new ArrayList<Flyable>();
   }
 
   public void setScenario(String filename) {

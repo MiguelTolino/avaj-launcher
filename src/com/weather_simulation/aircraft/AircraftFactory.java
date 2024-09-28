@@ -1,4 +1,7 @@
-import com.weather_simulation.aircraft.Flyable;
+package com.weather_simulation.aircraft;
+
+import aircraft.Baloon;
+import aircraft.Helicopter;
 import com.weather_simulation.utilites.Coordinates;
 
 public class AircraftFactory {
@@ -7,7 +10,7 @@ public class AircraftFactory {
     private static int id;
 
     private AircraftFactory() {
-        id = 0;
+        id = 0; // Initialize the id
     }
 
     public static AircraftFactory getInstance() {
@@ -19,8 +22,13 @@ public class AircraftFactory {
     }
 
     public Flyable newAircraft(String type, String name, Coordinates coordinates) {
-        // Implementation here
-        return null;
+        if (type.equals("Baloon")) {
+            return new Baloon(name, coordinates, generateUniqueId());
+        } else if (type.equals("JetPlane")) {
+            return new JetPlane(name, coordinates, generateUniqueId());
+        } else if (type.equals("Helicopter")) {
+            return new Helicopter(name, coordinates, generateUniqueId());
+        }
     }
 
     // Method to generate the next unique ID
