@@ -14,4 +14,16 @@ public class Aircraft {
     public void logMessage(String message) {
         System.out.println("[" + this.getClass().getSimpleName() + "] " + this.name + " (" + this.id + "): " + message);
     }
+
+    public long getId() {
+        return this.id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public Coordinates getCoordinates() {
+        return this.coordinates;
+    }
 }
