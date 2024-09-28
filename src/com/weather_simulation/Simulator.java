@@ -2,8 +2,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.ArrayList;
-import src.com.weather_simulation.aircraft.*;
-import src.com.weather_simulation.utilities.Coordinates;
+import com.weather_simulation.aircraft.*;
+import com.weather_simulation.utilities.Coordinates;
 
 public class Simulator {
 
