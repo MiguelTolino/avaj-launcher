@@ -10,7 +10,7 @@ public class Simulator {
   private int triggers;
   private ArrayList<Flyable> aircrafts;
 
-  Simulator() {
+  public Simulator() {
     triggers = 0;
     aircrafts = new ArrayList<Flyable>();
   }
@@ -45,6 +45,15 @@ public class Simulator {
     return true;
   }
 
+  // TODO: Implement runSimulation method
+  public void runSimulation() {
+    for (int i = 0; i < triggers; i++) {
+      for (Flyable aircraft : aircrafts) {
+        aircraft.updateConditions();
+      }
+    }
+  }
+
   public static void main(String[] args) {
     try {
       if (args.length != 1) {
@@ -53,6 +62,7 @@ public class Simulator {
       }
       Simulator sim = new Simulator();
       sim.setScenario(args[0]);
+      sim.runSimulation();
     } catch (Exception e) {
       System.out.println("Error: " + e.getMessage());
     }
