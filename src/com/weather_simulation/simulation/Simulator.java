@@ -63,7 +63,7 @@ public class Simulator {
       }
       String[] data = myReader.nextLine().split(" ");
       System.out.println(data);
-      aircrafts.add(AircraftFactory.getInstance().newAircraft(data[0], data[1],
+      aircrafts.add(AircraftFactory.newAircraft(data[0], data[1],
           new Coordinates(Integer.parseInt(data[2]), Integer.parseInt(data[3]), Integer.parseInt(data[4]))));
     }
     return true;
