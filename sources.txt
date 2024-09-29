@@ -7,5 +7,5 @@
 ./src/com/weather_simulation/simulation/Tower.java
 ./src/com/weather_simulation/simulation/WeatherProvider.java
 ./src/com/weather_simulation/simulation/WeatherTower.java
-./src/com/weather_simulation/simulation/Simulator.java
 ./src/com/weather_simulation/utilities/Coordinates.java
+./src/com/weather_simulation/Simulator.java

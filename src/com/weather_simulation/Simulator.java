@@ -1,5 +1,3 @@
-package simulation;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException; // Import the IOException class to handle errors
@@ -80,7 +78,7 @@ public class Simulator {
 
   public static void main(String[] args) {
     try {
-      if (args.length != 2) {
+      if (args.length != 1) {
         System.out.println("Usage: java Simulator <filename>");
         System.exit(1);
       }
