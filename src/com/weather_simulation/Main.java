@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            if (args.length != 1) {
+            if (args.length != 2) {
                 System.out.println("Usage: java Simulator <filename>");
                 System.exit(1);
             }
