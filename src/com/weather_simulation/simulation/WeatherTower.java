@@ -1,6 +1,5 @@
 package simulation;
 
-import simulation.Tower;
 import utilities.Coordinates;
 
 public class WeatherTower extends Tower {

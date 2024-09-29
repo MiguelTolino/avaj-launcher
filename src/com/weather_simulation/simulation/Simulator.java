@@ -1,11 +1,11 @@
-package com.weather_simulation;
+package simulation;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;  // Import the IOException class to handle errors
+import java.io.IOException; // Import the IOException class to handle errors
 import java.util.Scanner;
 import java.util.ArrayList;
-import simulation.*;
+
 import aircraft.*;
 import utilities.*;
 
@@ -75,20 +75,6 @@ public class Simulator {
       for (Flyable aircraft : aircrafts) {
         aircraft.updateConditions();
       }
-    }
-  }
-
-  public static void main(String[] args) {
-    try {
-      if (args.length != 1) {
-        System.out.println("Usage: java Simulator <filename>");
-        System.exit(1);
-      }
-      Simulator sim = new Simulator();
-      sim.setScenario(args[0]);
-      sim.runSimulation();
-    } catch (Exception e) {
-      System.out.println("Error: " + e.getMessage());
     }
   }
 }
