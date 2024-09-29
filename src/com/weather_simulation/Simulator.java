@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException; // Import the IOException class to handle errors
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.FileWriter;
 
 import aircraft.*;
 import utilities.*;
@@ -17,34 +18,55 @@ public class Simulator {
   public Simulator() {
     triggers = 0;
     aircrafts = new ArrayList<Flyable>();
-    file = CreateFile();
+    file = CreateOutputFile();
   }
 
-  private File CreateFile() {
+  private File CreateOutputFile() {
     try {
       File myObj = new File(FILENAME);
       if (myObj.createNewFile()) {
         System.out.println("File created: " + myObj.getName());
       } else {
-        System.out.println("File already exists.");
+        System.out.println("File already exists, leaving it blank.");
+        // Clear the file if it exists
+        new FileWriter(myObj, false).close();
       }
       return myObj;
     } catch (IOException e) {
-      System.out.println("An error occurred:" + e.getMessage());
+      System.out.println("An error occurred: " + e.getMessage());
       e.printStackTrace();
     }
     return null;
   }
 
+  public void printAllAircrafts() {
+    System.out.println("Scenarios: ");
+    for (Flyable aircraft : aircrafts) {
+      if (aircraft instanceof Aircraft) {
+        Aircraft a = (Aircraft) aircraft;
+        System.out.printf("%s, %s, ID: %d, %s%n",
+            a.getClass().getSimpleName(),
+            a.getName(),
+            a.getId(),
+            a.getCoordinates().toString());
+      }
+    }
+  }
+
   public void setScenario(String filename) {
     try {
-      ArrayList<String> data = new ArrayList<String>();
       File myObj = new File(filename);
       Scanner myReader = new Scanner(myObj);
       parseScenario(myReader);
       myReader.close();
     } catch (FileNotFoundException e) {
-      System.out.println("An error occurred.");
+      System.out.println("An error occurred." + e.getMessage());
+      e.printStackTrace();
+    } catch (IllegalArgumentException e) {
+      System.out.println("An error occurred." + e.getMessage());
+      e.printStackTrace();
+    } catch (Exception e) {
+      System.out.println("An error occurred." + e.getMessage());
       e.printStackTrace();
     }
   }
@@ -53,16 +75,30 @@ public class Simulator {
   private boolean parseScenario(Scanner myReader) {
     boolean firstLine = true;
 
-    while (myReader.hasNextLine()) {
-      if (firstLine) {
-        firstLine = false;
-        triggers = myReader.nextInt();
-        myReader.nextLine(); // Move to the next line after reading the integer
+    try {
+      if (!myReader.hasNextLine()) {
+        throw new IllegalArgumentException("Empty file");
       }
-      String[] data = myReader.nextLine().split(" ");
-      System.out.println(data);
-      aircrafts.add(AircraftFactory.newAircraft(data[0], data[1],
-          new Coordinates(Integer.parseInt(data[2]), Integer.parseInt(data[3]), Integer.parseInt(data[4]))));
+      System.out.println("Scenarios: ");
+      while (myReader.hasNextLine()) {
+        if (firstLine) {
+          firstLine = false;
+          triggers = myReader.nextInt();
+          if (triggers < 0) {
+            throw new IllegalArgumentException("Invalid number of triggers");
+          }
+          myReader.nextLine(); // Move to the next line after reading the integer
+        }
+        String[] data = myReader.nextLine().split(" ");
+        if (data.length != 5) {
+          throw new IllegalArgumentException("Invalid aircraft data");
+        }
+        aircrafts.add(AircraftFactory.newAircraft(data[0], data[1],
+            new Coordinates(Integer.parseInt(data[2]), Integer.parseInt(data[3]), Integer.parseInt(data[4]))));
+      }
+    } catch (Exception e) {
+      System.out.println("An error occurred." + e.getMessage());
+      e.printStackTrace();
     }
     return true;
   }
@@ -74,6 +110,7 @@ public class Simulator {
         aircraft.updateConditions();
       }
     }
+    printAllAircrafts();
   }
 
   public static void main(String[] args) {

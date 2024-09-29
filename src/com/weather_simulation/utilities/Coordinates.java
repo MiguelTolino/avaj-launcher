@@ -37,4 +37,8 @@ public class Coordinates {
     public int getHeight() {
         return height;
     }
+
+    public String toString() {
+        return "Coordinates: Longitude = " + longitude + ", Latitude = " + latitude + ", Height = " + height;
+    }
 }
