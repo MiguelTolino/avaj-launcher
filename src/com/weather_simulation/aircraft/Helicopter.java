@@ -1,16 +1,16 @@
 package aircraft;
 
 import utilities.Coordinates;
-import aircraft.Flyable;
 
-public class Helicopter extends Aircraft implements Flyable {
+public class Helicopter extends Aircraft {
 
-    public Helicopter(String name, Coordinates coordinates, int coordinates) {
-        super(name, coordinates, coordinates);
+    public Helicopter(long id, String name, Coordinates coordinates) {
+        super(id, name, coordinates);
     }
 
     @Override
     public void updateConditions() {
         // Implementation here
+        int a = 0;
     }
 }

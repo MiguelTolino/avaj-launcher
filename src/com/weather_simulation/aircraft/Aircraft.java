@@ -2,7 +2,7 @@ package aircraft;
 
 import utilities.Coordinates;
 
-public class Aircraft {
+public class Aircraft extends Flyable {
     protected long id;
     protected String name;
     protected Coordinates coordinates;
@@ -27,5 +27,9 @@ public class Aircraft {
 
     public Coordinates getCoordinates() {
         return this.coordinates;
+    }
+
+    public void updateConditions() {
+        // Implementation here
     }
 }

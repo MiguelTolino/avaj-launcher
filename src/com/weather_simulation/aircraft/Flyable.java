@@ -8,6 +8,6 @@ public abstract class Flyable {
     public abstract void updateConditions();
 
     public void registerTower(WeatherTower tower) {
-        // Implementation here
+        this.weatherTower = tower;
     }
 }

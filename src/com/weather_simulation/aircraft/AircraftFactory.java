@@ -20,13 +20,13 @@ public class AircraftFactory {
         return instance;
     }
 
-    public Flyable newAircraft(String type, String name, Coordinates coordinates) {
+    public static Flyable newAircraft(String type, String name, Coordinates coordinates) {
         if (type.equals("Baloon")) {
-            return new Baloon(name, coordinates, generateUniqueId());
+            return new Baloon(generateUniqueId(), name, coordinates);
         } else if (type.equals("JetPlane")) {
-            return new JetPlane(name, coordinates, generateUniqueId());
+            return new JetPlane(generateUniqueId(), name, coordinates);
         } else if (type.equals("Helicopter")) {
-            return new Helicopter(name, coordinates, generateUniqueId());
+            return new Helicopter(generateUniqueId(), name, coordinates);
         }
         return null;
     }

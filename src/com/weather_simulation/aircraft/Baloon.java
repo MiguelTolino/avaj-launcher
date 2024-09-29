@@ -1,12 +1,11 @@
 package aircraft;
 
 import utilities.Coordinates;
-import aircraft.Aircraft;
 
 public class Baloon extends Aircraft {
 
-    public Baloon(String name, Coordinates coordinates, long id) {
-        super(name, coordinates, id);
+    public Baloon(long id, String name, Coordinates coordinates) {
+        super(id, name, coordinates);
     }
 
     @Override

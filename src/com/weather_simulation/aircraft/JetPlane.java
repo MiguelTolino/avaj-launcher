@@ -1,9 +1,8 @@
 package aircraft;
 
 import utilities.Coordinates;
-import aircraft.*;
 
-public class JetPlane extends Aircraft implements Flyable {
+public class JetPlane extends Aircraft{
 
     public JetPlane(long id, String name, Coordinates coordinates) {
         super(id, name, coordinates);
