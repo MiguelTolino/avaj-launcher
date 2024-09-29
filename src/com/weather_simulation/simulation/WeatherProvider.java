@@ -1,3 +1,7 @@
+package simulation;
+
+import utilities.Coordinates;
+
 public class WeatherProvider {
 
     private static WeatherProvider instance;

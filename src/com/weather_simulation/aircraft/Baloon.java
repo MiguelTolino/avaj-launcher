@@ -1,4 +1,7 @@
-import com.weather_simulation.aircraft.Aircraft;
+package aircraft;
+
+import utilities.Coordinates;
+import aircraft.Aircraft;
 
 public class Baloon extends Aircraft {
 

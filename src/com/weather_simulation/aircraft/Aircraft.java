@@ -1,4 +1,6 @@
-import com.weather_simulation.aircraft.Coordinates;
+package aircraft;
+
+import utilities.Coordinates;
 
 public class Aircraft {
     protected long id;

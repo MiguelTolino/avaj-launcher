@@ -1,9 +1,12 @@
-import com.weather_simulation.aircraft.Aircraft;
+package aircraft;
+
+import utilities.Coordinates;
+import aircraft.Flyable;
 
 public class Helicopter extends Aircraft implements Flyable {
 
-    public Helicopter(long id, String name, Coordinates coordinates) {
-        super(id, name, coordinates);
+    public Helicopter(String name, Coordinates coordinates, int coordinates) {
+        super(name, coordinates, coordinates);
     }
 
     @Override

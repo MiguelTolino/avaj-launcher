@@ -1,4 +1,6 @@
-import com.weather_simulation.simulation.WeatherTower;
+package aircraft;
+
+import simulation.*;
 
 public abstract class Flyable {
     protected WeatherTower weatherTower;

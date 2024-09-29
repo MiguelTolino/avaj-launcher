@@ -1,13 +1,13 @@
+package com.weather_simulation;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;  // Import the IOException class to handle errors
 import java.util.Scanner;
 import java.util.ArrayList;
-import com.weather_simulation.aircraft.*;
-import com.weather_simulation.utilities.Coordinates;
-
-import aircraft.AircraftFactory;
-import aircraft.Flyable;
+import simulation.*;
+import aircraft.*;
+import utilities.*;
 
 public class Simulator {
 

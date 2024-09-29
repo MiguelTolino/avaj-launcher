@@ -1,4 +1,7 @@
-package com.weather_simulation.aircraft;
+package aircraft;
+
+import aircraft.*;
+import utilities.Coordinates;
 
 public class AircraftFactory {
 

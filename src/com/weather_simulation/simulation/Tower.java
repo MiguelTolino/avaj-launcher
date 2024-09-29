@@ -1,6 +1,7 @@
-package com.weather_simulation;
+package simulation;
 
 import java.util.List;
+import aircraft.Flyable;
 
 public class Tower {
     private List<Flyable> observers;
