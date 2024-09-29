@@ -12,13 +12,13 @@ public class Simulator {
 
   private int triggers;
   private ArrayList<Flyable> aircrafts;
-  private File file;
+  private File outputfile;
   private static final String FILENAME = "simulation.txt";
 
   public Simulator() {
     triggers = 0;
     aircrafts = new ArrayList<Flyable>();
-    file = CreateOutputFile();
+    outputfile = CreateOutputFile();
   }
 
   private File CreateOutputFile() {
@@ -39,8 +39,9 @@ public class Simulator {
     return null;
   }
 
-  public void printAllAircrafts() {
-    System.out.println("Scenarios: ");
+  public void printScenario() {
+    System.out.println("===== Scenario =====");
+    System.out.println("Triggers: " + triggers);
     for (Flyable aircraft : aircrafts) {
       if (aircraft instanceof Aircraft) {
         Aircraft a = (Aircraft) aircraft;
@@ -71,7 +72,6 @@ public class Simulator {
     }
   }
 
-  // TODO: Implement parseScenario method and handle exceptions and errors
   private boolean parseScenario(Scanner myReader) {
     boolean firstLine = true;
 
@@ -79,7 +79,6 @@ public class Simulator {
       if (!myReader.hasNextLine()) {
         throw new IllegalArgumentException("Empty file");
       }
-      System.out.println("Scenarios: ");
       while (myReader.hasNextLine()) {
         if (firstLine) {
           firstLine = false;
@@ -97,8 +96,8 @@ public class Simulator {
             new Coordinates(Integer.parseInt(data[2]), Integer.parseInt(data[3]), Integer.parseInt(data[4]))));
       }
     } catch (Exception e) {
-      System.out.println("An error occurred." + e.getMessage());
-      e.printStackTrace();
+      System.out.println("An error occurred: " + e.getMessage());
+      System.exit(1);
     }
     return true;
   }
@@ -110,20 +109,21 @@ public class Simulator {
         aircraft.updateConditions();
       }
     }
-    printAllAircrafts();
+    printScenario();
   }
 
   public static void main(String[] args) {
     try {
       if (args.length != 1) {
         System.out.println("Usage: java Simulator <filename>");
-        System.exit(1);
+        throw new IllegalArgumentException("Invalid number of arguments");
       }
       Simulator sim = new Simulator();
       sim.setScenario(args[0]);
       sim.runSimulation();
     } catch (Exception e) {
       System.out.println("Error: " + e.getMessage());
+      System.exit(1);
     }
   }
 }

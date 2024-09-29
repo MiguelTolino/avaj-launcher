@@ -27,12 +27,13 @@ public class AircraftFactory {
             return new JetPlane(generateUniqueId(), name, coordinates);
         } else if (type.equals("Helicopter")) {
             return new Helicopter(generateUniqueId(), name, coordinates);
+        } else {
+            throw new IllegalArgumentException("Unknown aircraft type: " + type);
         }
-        return null;
     }
 
     // Method to generate the next unique ID
     public static int generateUniqueId() {
-        return id++;  // Increment and return the id
+        return id++; // Increment and return the id
     }
 }
