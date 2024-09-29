@@ -1,18 +1,41 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;  // Import the IOException class to handle errors
 import java.util.Scanner;
 import java.util.ArrayList;
 import com.weather_simulation.aircraft.*;
 import com.weather_simulation.utilities.Coordinates;
 
+import aircraft.AircraftFactory;
+import aircraft.Flyable;
+
 public class Simulator {
 
   private int triggers;
   private ArrayList<Flyable> aircrafts;
+  private File file;
+  private static final String FILENAME = "simulation.txt";
 
   public Simulator() {
     triggers = 0;
     aircrafts = new ArrayList<Flyable>();
+    file = CreateFile();
+  }
+
+  private File CreateFile() {
+    try {
+      File myObj = new File(FILENAME);
+      if (myObj.createNewFile()) {
+        System.out.println("File created: " + myObj.getName());
+      } else {
+        System.out.println("File already exists.");
+      }
+      return myObj;
+    } catch (IOException e) {
+      System.out.println("An error occurred:" + e.getMessage());
+      e.printStackTrace();
+    }
+    return null;
   }
 
   public void setScenario(String filename) {
@@ -28,6 +51,7 @@ public class Simulator {
     }
   }
 
+  // TODO: Implement parseScenario method and handle exceptions and errors
   private boolean parseScenario(Scanner myReader) {
     boolean firstLine = true;
 
