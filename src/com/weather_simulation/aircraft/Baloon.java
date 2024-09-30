@@ -1,5 +1,6 @@
 package aircraft;
 
+import simulation.WeatherProvider;
 import utilities.Coordinates;
 
 public class Baloon extends Aircraft {
@@ -10,6 +11,33 @@ public class Baloon extends Aircraft {
 
     @Override
     public void updateConditions() {
-        // Implementation here
+        switch (WeatherProvider.getCurrentWeather(this.coordinates)) {
+            case "SUN":
+                this.coordinates = new Coordinates(
+                        coordinates.getLongitude() + 2,
+                        coordinates.getLatitude() + 0,
+                        coordinates.getHeight() + 4);
+                break;
+            case "RAIN":
+                this.coordinates = new Coordinates(
+                        coordinates.getLongitude() + 0,
+                        coordinates.getLatitude() + 0,
+                        coordinates.getHeight() - 5);
+                break;
+            case "FOG":
+                this.coordinates = new Coordinates(
+                        coordinates.getLongitude() + 0,
+                        coordinates.getLatitude() + 0,
+                        coordinates.getHeight() - 3);
+                break;
+            case "SNOW":
+                this.coordinates = new Coordinates(
+                        coordinates.getLongitude() + 0,
+                        coordinates.getLatitude() + 0,
+                        coordinates.getHeight() - 15);
+                break;
+            default:
+                break;
+        }
     }
 }
