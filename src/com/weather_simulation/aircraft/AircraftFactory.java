@@ -1,6 +1,5 @@
 package aircraft;
 
-import aircraft.*;
 import utilities.Coordinates;
 
 public class AircraftFactory {
@@ -9,7 +8,7 @@ public class AircraftFactory {
     private static int id;
 
     private AircraftFactory() {
-        id = 0; // Initialize the id
+        id = 1; // Initialize the id
     }
 
     public static AircraftFactory getInstance() {
