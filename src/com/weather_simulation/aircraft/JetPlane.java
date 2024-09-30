@@ -40,6 +40,10 @@ public class JetPlane extends Aircraft{
             default:
                 break;
         }
-        this.logMessage(getWeatherMessage(weather));
+        if (this.getCoordinates().getHeight() <= 0) {
+            this.weatherTower.unregister(this);
+        } else {
+            this.logMessage(getWeatherMessage(weather));
+        }
     }
 }

@@ -146,7 +146,8 @@ public class Simulator {
       sim.setScenario(args[0]);
       sim.runSimulation();
     } catch (Exception e) {
-      System.out.println("Error: " + e.getMessage());
+      System.err.println("Error: " + e.getMessage());
+      System.err.println("Exiting...");
       System.exit(1);
     }
   }
