@@ -5,11 +5,11 @@ import utilities.Coordinates;
 public class WeatherProvider {
 
     private static WeatherProvider instance;
-    private static String[] weather;
+    private static String[] types = {"RAIN", "FOG", "SUN", "SNOW"};
 
     private WeatherProvider() {
         // Constructor implementation
-        weather = new String[] {"RAIN", "FOG", "SUN", "SNOW"};
+
     }
 
     public static WeatherProvider getInstance() {
@@ -22,6 +22,6 @@ public class WeatherProvider {
 
     public static String getCurrentWeather(Coordinates coordinates) {
         int randomNumber = (int) (Math.random() * 4); // 0 to 3
-        return weather[randomNumber];
+        return types[randomNumber];
     }
 }

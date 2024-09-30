@@ -6,12 +6,14 @@ import java.util.ArrayList;
 import java.io.FileWriter;
 
 import aircraft.*;
+import simulation.WeatherTower;
 import utilities.*;
 
 public class Simulator {
 
   private int triggers;
   private ArrayList<Flyable> aircrafts;
+  private WeatherTower weatherTower;
   private File outputfile;
   private static final String FILENAME = "simulation.txt";
 
@@ -19,6 +21,7 @@ public class Simulator {
     triggers = 0;
     aircrafts = new ArrayList<Flyable>();
     outputfile = CreateOutputFile();
+    weatherTower = new WeatherTower();
   }
 
   private File CreateOutputFile() {
@@ -102,29 +105,26 @@ public class Simulator {
     return true;
   }
 
-  // TODO: Implement runSimulation method
   public void runSimulation() {
     for (int i = 0; i < triggers; i++) {
       for (Flyable aircraft : aircrafts) {
         aircraft.updateConditions();
-        Aircraft castedAircraft = (Aircraft) aircraft;
-        castedAircraft.logMessage("Hola");
       }
     }
     printScenario();
   }
 
   public static void main(String[] args) {
-    if (args.length != 1) {
-      System.err.println("Error: Incorrect usage. Expected: java Simulator <filename>");
-      System.exit(1);
-    }
     try {
+      if (args.length != 1) {
+        System.out.println("Usage: java Simulator <filename>");
+        throw new IllegalArgumentException("Invalid number of arguments");
+      }
       Simulator sim = new Simulator();
       sim.setScenario(args[0]);
       sim.runSimulation();
     } catch (Exception e) {
-      System.err.println("Simulation error: " + e.getMessage());
+      System.out.println("Error: " + e.getMessage());
       System.exit(1);
     }
   }
