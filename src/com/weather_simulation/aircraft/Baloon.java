@@ -11,7 +11,8 @@ public class Baloon extends Aircraft {
 
     @Override
     public void updateConditions() {
-        switch (WeatherProvider.getCurrentWeather(this.coordinates)) {
+        String weather = WeatherProvider.getCurrentWeather(this.coordinates);
+        switch (weather) {
             case "SUN":
                 this.coordinates = new Coordinates(
                         coordinates.getLongitude() + 2,
@@ -39,5 +40,10 @@ public class Baloon extends Aircraft {
             default:
                 break;
         }
+        // TODO:  Unregister from weather tower if height <= 0
+/*         if (this.coordinates.getHeight() <= 0) {
+            this.weatherTower.unregister(this);
+        } else */
+            this.logMessage(getWeatherMessage(weather));
     }
 }

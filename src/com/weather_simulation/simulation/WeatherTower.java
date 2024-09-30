@@ -5,11 +5,10 @@ import utilities.Coordinates;
 public class WeatherTower extends Tower {
 
     public String getWeather(Coordinates coordinates) {
-        // Implementation here
-        return null;
+        return WeatherProvider.getCurrentWeather(coordinates);
     }
 
     public void changeWeather() {
-        // Implementation here
+        this.conditionChanged();
     }
 }

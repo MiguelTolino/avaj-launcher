@@ -6,6 +6,12 @@ public class Aircraft extends Flyable {
     protected long id;
     protected String name;
     protected Coordinates coordinates;
+    protected final String[] weatherMessages = {
+        "Sunshine makes me feel like I can fly forever!",
+        "Rain, rain, go away, or at least don't make me sway!",
+        "Fog's thick today, hope I don't lose my way!",
+        "Snow is silent, but it makes my journey quite vibrant!"
+    };
 
     protected Aircraft(long id, String name, Coordinates coordinates) {
         if (name == null || name.isEmpty()) {
@@ -37,5 +43,20 @@ public class Aircraft extends Flyable {
 
     public void updateConditions() {
         // Implementation here
+    }
+
+    protected String getWeatherMessage(String weather) {
+        switch (weather) {
+            case "SUN":
+                return weatherMessages[0];
+            case "RAIN":
+                return weatherMessages[1];
+            case "FOG":
+                return weatherMessages[2];
+            case "SNOW":
+                return weatherMessages[3];
+            default:
+                return "";
+        }
     }
 }

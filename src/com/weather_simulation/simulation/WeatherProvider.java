@@ -5,7 +5,7 @@ import utilities.Coordinates;
 public class WeatherProvider {
 
     private static WeatherProvider instance;
-    private static String[] types = {"RAIN", "FOG", "SUN", "SNOW"};
+    private final static String[] types = {"RAIN", "FOG", "SUN", "SNOW"};
 
     private WeatherProvider() {
         // Constructor implementation

@@ -40,5 +40,6 @@ public class Helicopter extends Aircraft {
             default:
                 break;
         }
+        this.logMessage(getWeatherMessage(weather));
     }
 }

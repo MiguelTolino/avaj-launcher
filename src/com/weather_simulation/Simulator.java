@@ -55,6 +55,7 @@ public class Simulator {
             a.getCoordinates().toString());
       }
     }
+    System.out.println("=====================");
   }
 
   public void setScenario(String filename) {
@@ -106,12 +107,17 @@ public class Simulator {
   }
 
   public void runSimulation() {
-    for (int i = 0; i < triggers; i++) {
-      for (Flyable aircraft : aircrafts) {
-        aircraft.updateConditions();
-      }
-    }
     printScenario();
+    for (Flyable aircraft : aircrafts) {
+      aircraft.registerTower(weatherTower);
+      weatherTower.register(aircraft);
+    }
+    for (int i = 0; i < triggers; i++) {
+      System.out.println("--------------------");
+      System.out.println("Trigger " + (i + 1) + " of " + triggers);
+      System.out.println("--------------------");
+      weatherTower.changeWeather();
+    }
   }
 
   public static void main(String[] args) {
