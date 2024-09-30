@@ -41,6 +41,7 @@ public class Baloon extends Aircraft {
                 break;
         }
         // TODO:  Unregister from weather tower if height <= 0
+        // FIXME: What happens with Tower List?
 /*         if (this.coordinates.getHeight() <= 0) {
             this.weatherTower.unregister(this);
         } else */

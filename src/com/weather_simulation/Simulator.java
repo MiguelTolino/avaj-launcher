@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException; // Import the IOException class to handle errors
+import java.io.PrintStream;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.FileWriter;
@@ -17,11 +19,24 @@ public class Simulator {
   private File outputfile;
   private static final String FILENAME = "simulation.txt";
 
+  private void redirectOutputToFile() {
+    try {
+      PrintStream fileOut = new PrintStream(new FileOutputStream(outputfile));
+      System.setOut(fileOut);
+    } catch (FileNotFoundException e) {
+      System.err.println("Error al redirigir la salida al archivo: " + e.getMessage());
+      e.printStackTrace();
+    }
+  }
+
   public Simulator() {
     triggers = 0;
     aircrafts = new ArrayList<Flyable>();
     outputfile = CreateOutputFile();
     weatherTower = new WeatherTower();
+    System.out.println("Weather Simulation: Starting...");
+    System.out.println("Output file: " + FILENAME);
+    redirectOutputToFile();
   }
 
   private File CreateOutputFile() {
@@ -30,9 +45,10 @@ public class Simulator {
       if (myObj.createNewFile()) {
         System.out.println("File created: " + myObj.getName());
       } else {
-        System.out.println("File already exists, leaving it blank.");
-        // Clear the file if it exists
-        new FileWriter(myObj, false).close();
+        // Clear the file if it exists using try-with-resources to ensure proper closing
+        try (FileWriter fileWriter = new FileWriter(myObj, false)) {
+          // No need to explicitly call close here, as try-with-resources handles it
+        }
       }
       return myObj;
     } catch (IOException e) {
