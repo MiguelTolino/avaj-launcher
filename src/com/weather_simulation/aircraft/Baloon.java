@@ -41,6 +41,7 @@ public class Baloon extends Aircraft {
                 break;
         }
         if (this.getCoordinates().getHeight() <= 0) {
+            this.logMessage("Landing.");
             this.weatherTower.unregister(this);
         } else {
             this.logMessage(getWeatherMessage(weather));
