@@ -1,0 +1,19 @@
+12
+Baloon B1 11 224 620
+Baloon B2 726 52 497
+Baloon B3 689 235 537
+JetPlane J1 420 452 0
+JetPlane J2 110 725 80
+Helicopter H1 692 647 458
+Helicopter H2 244 694 724
+Helicopter H3 502 505 682
+Helicopter H4 88 127 504
+Baloon B1 11 224 620
+Baloon B2 726 52 497
+Baloon B3 689 235 537
+JetPlane J1 420 452 0
+JetPlane J2 110 725 80
+Helicopter H1 692 647 458
+Helicopter H2 244 694 724
+Helicopter H3 502 505 682
+Helicopter H4 88 127 504

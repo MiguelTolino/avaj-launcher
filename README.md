@@ -21,7 +21,7 @@ The simulation is built around a simple concept: aircrafts are created using a f
 ├── README.md 📚
 ├── error_files/ ❌
 ├── run.sh 🖥️
-├── scenario.txt 📖
+├── scenarios/ 📖
 ├── sources.txt 📋
 └── src/
     └── com/
@@ -46,7 +46,7 @@ The simulation is built around a simple concept: aircrafts are created using a f
 
 1. **Build the project** 🛠️: Run the `run.sh` script to compile the Java files and prepare the simulation.
     ```sh
-    ./run.sh <scenario_file>
+    ./run.sh <scenarios/scenario_file>
     ```
 2. **Run the simulation** 🚀: The `run.sh` script will automatically start the simulation after building the project.
 3. **View the results** 📊: Check the `simulation.txt` file for the output of the simulation.

@@ -104,7 +104,7 @@ public class Simulator {
         if (firstLine) {
           firstLine = false;
           triggers = myReader.nextInt();
-          if (triggers < 0) {
+          if (triggers <= 0) {
             throw new IllegalArgumentException("Invalid number of triggers");
           }
           myReader.nextLine(); // Move to the next line after reading the integer

@@ -18,7 +18,7 @@ public class Tower {
             Aircraft a = (Aircraft) flyable;
             System.out.print("Tower says: ");
             if (a.getCoordinates().getHeight() > 0) {
-                a.logMessage("Registered to weather tower.");
+                a.logMessage("\u001B[32mRegistered to weather tower.\u001B[0m");
                 observers.add(flyable);
             }
             else {
@@ -31,7 +31,7 @@ public class Tower {
         if (observers.contains(flyable)) {
             Aircraft a = (Aircraft) flyable;
             System.out.print("Tower says: ");
-            a.logMessage("Unregistered from weather tower.");
+            a.logMessage("\u001B[31mUnregistered from weather tower.\u001B[0m");
             observers.remove(flyable);
         }
     }
