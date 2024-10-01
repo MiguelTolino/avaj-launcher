@@ -1,0 +1,11 @@
+30
+BaloonB4 5 6 25
+Baloon B5 2 9 70.0
+JetPlane J3 24 45
+Helicopter H5 655 34 21
+Helicopter H6 23 34 yy
+Helikopter H7 99, 69 100
+Baloon B6 103 23
+JetPlane J4 12 100 769
+Helicopter H8 224
+Balloon B5 2 9 67

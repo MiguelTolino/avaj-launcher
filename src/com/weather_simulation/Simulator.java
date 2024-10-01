@@ -75,21 +75,22 @@ public class Simulator {
   }
 
   public void setScenario(String filename) {
-    try {
-      File myObj = new File(filename);
-      Scanner myReader = new Scanner(myObj);
-      parseScenario(myReader);
-      myReader.close();
+    try (Scanner myReader = new Scanner(new File(filename))) {
+      if (!parseScenario(myReader)) {
+        System.exit(1);
+      }
     } catch (FileNotFoundException e) {
-      System.out.println("An error occurred." + e.getMessage());
-      e.printStackTrace();
+      handleException("File not found: " + filename, e);
     } catch (IllegalArgumentException e) {
-      System.out.println("An error occurred." + e.getMessage());
-      e.printStackTrace();
+      handleException("Invalid argument provided.", e);
     } catch (Exception e) {
-      System.out.println("An error occurred." + e.getMessage());
-      e.printStackTrace();
+      handleException("An unexpected error occurred.", e);
     }
+  }
+
+  private void handleException(String message, Exception e) {
+    System.out.println(message + " " + e.getMessage());
+    System.exit(1);
   }
 
   private boolean parseScenario(Scanner myReader) {
