@@ -89,7 +89,7 @@ public class Simulator {
   }
 
   private void handleException(String message, Exception e) {
-    System.out.println(message + " " + e.getMessage());
+    System.err.println(message + " " + e.getMessage());
     System.exit(1);
   }
 
@@ -117,7 +117,7 @@ public class Simulator {
             new Coordinates(Integer.parseInt(data[2]), Integer.parseInt(data[3]), Integer.parseInt(data[4]))));
       }
     } catch (Exception e) {
-      System.out.println("An error occurred: " + e.getMessage());
+      System.err.println("An error occurred: " + e.getMessage());
       System.exit(1);
     }
     return true;
