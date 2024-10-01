@@ -7,5 +7,5 @@ COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
 
 # Set the classpath and specify the main class to run with the scenario.txt file as input
-CMD ["/bin/sh", "run.sh", "scenario.txt"]
+CMD ["/bin/sh", "run.sh", "scenarios/scenario.txt"]
 
