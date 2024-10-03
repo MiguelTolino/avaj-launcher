@@ -130,6 +130,10 @@ public class Simulator {
       weatherTower.register(aircraft);
     }
     for (int i = 0; i < triggers; i++) {
+      if (weatherTower.getObservers().size() == 0) {
+        System.out.println("\nAll aircraft have landed. Exiting simulation...");
+        break;
+      }
       System.out.println("\u001B[33m--------------------");
       System.out.println("Trigger " + (i + 1) + " of " + triggers);
       System.out.println("--------------------\u001B[0m");

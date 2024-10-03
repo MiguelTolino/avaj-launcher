@@ -44,4 +44,8 @@ public class Tower {
             }
         }
     }
+
+    public List<Flyable> getObservers() {
+        return observers;
+    }
 }
