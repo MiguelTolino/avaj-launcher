@@ -8,11 +8,10 @@ public class AircraftFactory {
     private static int id;
 
     private AircraftFactory() {
-        id = 1; // Initialize the id
+        id = 1;
     }
 
     public static AircraftFactory getInstance() {
-        // Singleton instance
         if (instance == null) {
             instance = new AircraftFactory();
         }
@@ -31,8 +30,7 @@ public class AircraftFactory {
         }
     }
 
-    // Method to generate the next unique ID
     public static int generateUniqueId() {
-        return id++; // Increment and return the id
+        return id++;
     }
 }

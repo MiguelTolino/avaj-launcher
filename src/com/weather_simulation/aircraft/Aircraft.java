@@ -42,7 +42,6 @@ public class Aircraft extends Flyable {
     }
 
     public void updateConditions() {
-        // Implementation here
     }
 
     protected String getWeatherMessage(String weather) {

@@ -130,9 +130,9 @@ public class Simulator {
       weatherTower.register(aircraft);
     }
     for (int i = 0; i < triggers; i++) {
-      System.out.println("--------------------");
+      System.out.println("\u001B[33m--------------------");
       System.out.println("Trigger " + (i + 1) + " of " + triggers);
-      System.out.println("--------------------");
+      System.out.println("--------------------\u001B[0m");
       weatherTower.changeWeather();
     }
   }
