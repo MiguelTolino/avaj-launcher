@@ -1,6 +1,7 @@
 package aircraft;
 
 import utilities.Coordinates;
+import exceptions.AircraftException;
 
 public class Aircraft extends Flyable {
     protected long id;
@@ -14,15 +15,21 @@ public class Aircraft extends Flyable {
     };
 
     protected Aircraft(long id, String name, Coordinates coordinates) {
-        if (name == null || name.isEmpty()) {
-            throw new IllegalArgumentException("Aircraft name cannot be null or empty.");
+        try {
+            if (name == null || name.isEmpty()) {
+                throw new AircraftException.InvalidAircraftNameException("Aircraft name cannot be null or empty.");
+            }
+            if (coordinates == null) {
+                throw new AircraftException.InvalidAircraftCoordinatesException("Aircraft coordinates cannot be null.");
+            }
+            this.id = id;
+            this.name = name;
+            this.coordinates = coordinates;
+        } catch (AircraftException.InvalidAircraftNameException e) {
+            System.out.println("Invalid aircraft name: " + e.getMessage());
+        } catch (AircraftException.InvalidAircraftCoordinatesException e) {
+            System.out.println("Invalid aircraft coordinates: " + e.getMessage());
         }
-        if (coordinates == null) {
-            throw new IllegalArgumentException("Aircraft coordinates cannot be null.");
-        }
-        this.id = id;
-        this.name = name;
-        this.coordinates = coordinates;
     }
 
     public void logMessage(String message) {
